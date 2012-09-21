@@ -1,0 +1,40 @@
+{
+  "name": "boilerplate-has-test",
+  "description": "The best project ever.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/mzgoddard/boilerplate-has-test",
+  "author": {
+    "name": "Michael \"Z\" Goddard",
+    "email": "mzgoddard@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mzgoddard/boilerplate-has-test.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mzgoddard/boilerplate-has-test/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/mzgoddard/boilerplate-has-test/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "dist/main",
+  "engines": {
+    "node": "~0.8"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/grunt test"
+  },
+  "dependencies": {
+    "has": "*"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.15",
+    "bbb": "*",
+    "grunt-contrib": "*",
+    "grunt-jasmine-task": "*"
+  },
+  "keywords": []
+}

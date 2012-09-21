@@ -1,0 +1,3 @@
+[submodule "vendor/has.js"]
+	path = vendor/has.js
+	url = git://github.com/phiggins42/has.js.git
