@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     // https://github.com/cowboy/grunt/blob/master/docs/task_lint.md
     lint: {
       files: [
-        "build/config.js", "app/**/*.js"
+        "build/config.js", "lib/**/*.js"
       ]
     },
 
@@ -70,6 +70,17 @@ module.exports = function(grunt) {
         ],
 
         dest: "dist/debug/require.js",
+
+        separator: ";"
+      },
+      'dist.node': {
+        src: [
+          "vendor/almond.js",
+          "dist/debug.node/templates.js",
+          "dist/debug.node/require.js"
+        ],
+
+        dest: "dist/debug.node/require.js",
 
         separator: ";"
       }
