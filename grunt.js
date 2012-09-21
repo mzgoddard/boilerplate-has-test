@@ -4,6 +4,7 @@
 module.exports = function(grunt) {
 
   grunt.loadNpmTasks( 'grunt-contrib' );
+  grunt.loadNpmTasks( 'grunt-closure-compiler' );
   grunt.loadNpmTasks( 'grunt-jasmine-task' );
   grunt.loadNpmTasks( 'bbb' );
 
@@ -83,6 +84,10 @@ module.exports = function(grunt) {
         dest: "dist/debug.node/require.js",
 
         separator: ";"
+      },
+      release: {
+        src: [],
+        dest: "dist/release/require.js"
       }
     },
 
@@ -168,7 +173,8 @@ module.exports = function(grunt) {
 
         // Map `server:release` to `release` folders.
         folders: {
-          "app": "dist/release",
+          "lib": "dist/release",
+          "vendor": "dist/release",
           "assets/js/libs": "dist/release",
           "assets/css": "dist/release"
         }
@@ -214,6 +220,18 @@ module.exports = function(grunt) {
     watch: {
       files: ["grunt.js", "assets/**/*", "app/**/*"],
       tasks: "styles"
+    },
+
+    'closure-compiler': {
+      frontend: {
+        closurePath: './bin/closure',
+        js: 'dist/debug/require.js',
+        jsOutputFile: 'dist/release/require.js',
+        options: {
+          compilation_level: 'ADVANCED_OPTIMIZATIONS',
+          language_in: 'ECMASCRIPT5_STRICT'
+        }
+      }
     }
 
   });
@@ -229,7 +247,7 @@ module.exports = function(grunt) {
 
   // The release task will run the debug tasks and then minify the
   // dist/debug/require.js file and CSS files.
-  grunt.registerTask("release", "debug min mincss");
+  grunt.registerTask("release", "debug closure-compiler mincss");
 
   grunt.registerTask("default", "debug");
 
