@@ -218,7 +218,7 @@ module.exports = function(grunt) {
     // available to compile CSS if you are unable to use the runtime compiler
     // (use if you have a custom server, PhoneGap, Adobe Air, etc.)
     watch: {
-      files: ["grunt.js", "assets/**/*", "app/**/*"],
+      files: ["grunt.js", "www/**/*", "lib/**/*"],
       tasks: "styles"
     },
 
