@@ -231,7 +231,7 @@ module.exports = function(grunt) {
         options: {
           compilation_level: 'ADVANCED_OPTIMIZATIONS',
           language_in: 'ECMASCRIPT5_STRICT',
-          jscomp_warning: [ 'undefinedVars' ],
+          jscomp_off: [ 'undefinedVars', 'uselessCode' ],
           warning_level: 'VERBOSE'
           // common_js_entry_module: 'lib/main.js',
           // process_common_js_modules: [ 'lib/hello.js', 'vendor/has.js', 'lib/hastests.js' ],
