@@ -65,6 +65,7 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: [
+          "lib/api.js",
           "vendor/almond.js",
           "dist/debug/templates.js",
           "dist/debug/require.js"
@@ -110,10 +111,10 @@ module.exports = function(grunt) {
       // development file path.
       "dist/debug/index.css": {
         // Point this to where your `index.css` file is location.
-        src: "assets/css/index.css",
+        src: "media/css/index.css",
 
         // The relative path to use for the @imports.
-        paths: ["assets/css"],
+        paths: ["media/css"],
 
         // Additional production-only stylesheets here.
         additional: []
@@ -229,7 +230,12 @@ module.exports = function(grunt) {
         jsOutputFile: 'dist/release/require.js',
         options: {
           compilation_level: 'ADVANCED_OPTIMIZATIONS',
-          language_in: 'ECMASCRIPT5_STRICT'
+          language_in: 'ECMASCRIPT5_STRICT',
+          jscomp_warning: [ 'undefinedVars' ],
+          warning_level: 'VERBOSE'
+          // common_js_entry_module: 'lib/main.js',
+          // process_common_js_modules: [ 'lib/hello.js', 'vendor/has.js', 'lib/hastests.js' ],
+          // transform_amd_modules: ''
         }
       }
     }
